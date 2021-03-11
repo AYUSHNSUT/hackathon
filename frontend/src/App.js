@@ -10,7 +10,7 @@ import UserLoginPage from "./pages/UserLoginPage";
 import DoctorLoginPage from "./pages/DoctorLoginPage";
 import UserRegister from "./pages/UserRegister";
 import DoctorRegister from "./pages/DoctorRegister";
-import PrivateRoute from "./components/PrivateRoute";
+//import PrivateRoute from "./components/PrivateRoute";
 import LoginDoctorUserChoicePage from "./pages/LoginDoctorUserChoicePage";
 import RegisterDoctorUserChoicePage from "./pages/RegisterDoctorUserChoicePage";
 import HeartPrediction from "./pages/HeartPrediction";

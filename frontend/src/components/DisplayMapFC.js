@@ -6,11 +6,7 @@ export const DisplayMapFC = (props) => {
   const mapRef = React.useRef(null);
   let latitude = null
   let longitude = null
-  /**
-   * Create the map instance
-   * While `useEffect` could also be used here, `useLayoutEffect` will render
-   * the map sooner
-   */
+
   React.useLayoutEffect(() => {
     // `mapRef.current` will be `undefined` when this hook first runs; edge case that
     function initGeolocation() {
@@ -46,7 +42,7 @@ export const DisplayMapFC = (props) => {
     }
 
     function fail() {
-      //hello
+
     }
 
     function addMarkersToMap(hMap) {
@@ -75,16 +71,7 @@ export const DisplayMapFC = (props) => {
 
     addMarkersToMap()
 
-    //vgbhnj
 
-
-
-
-
-
-    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
-
-    const ui = H.ui.UI.createDefault(hMap, defaultLayers);
 
     // This will act as a cleanup to run once this hook runs again.
     // This includes when the component un-mounts
@@ -92,12 +79,6 @@ export const DisplayMapFC = (props) => {
       hMap.dispose();
     };
   }, [mapRef]); // This will run this hook every time this ref is updated
-
-
-  // React.useEffect(() => {
-
-
-  // }, [])
 
 
 

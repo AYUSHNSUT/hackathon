@@ -18,7 +18,7 @@ const Register = ({ location, history }) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [speciality, setSpeciality] = useState('')
   const [fees, setFees] = useState('')
-  const [validated, setValidated] = useState(false);
+  const [validated,] = useState(false);
 
 
   // const redirect = location.search ? location.search.split('=') : '/'

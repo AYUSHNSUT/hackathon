@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import '../styles/appointmentpage.css'
-import { useRecoilState, useRecoilValue } from "recoil";
-import { userAtom, tokenAtom } from "../global/globalState";
-import { Button, Container, Row, Col, Form } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { useRecoilState } from "recoil";
+import { userAtom } from "../global/globalState";
+import { Button, Form } from 'react-bootstrap'
 import FormContainer from '../components/FormContainer'
 import TopNav from '../components/TopNav'
-import Footer from '../components/Footer'
-import Loader from '../components/Loader'
 
 const AppointmentPage = ({ history }) => {
   const [doctor, setDoctor] = useState('');
@@ -17,8 +14,8 @@ const AppointmentPage = ({ history }) => {
   const [appointmentDate, setAppointmentDate] = useState(new Date());
   const [loading, setLoading] = useState(true)
 
-  const [user, setUser] = useRecoilState(userAtom);
-  const token = useRecoilValue(tokenAtom);
+  const [user,] = useRecoilState(userAtom);
+  //const token = useRecoilValue(tokenAtom);
 
   const [doctors, setDoctors] = useState(null);
 
@@ -68,7 +65,7 @@ const AppointmentPage = ({ history }) => {
     }
     else { history.push('/loginchoice') }
 
-  }, [history]);
+  }, [doctors, history, user]);
 
   const handleAppointment = async (symptoms, appointmentDate, speciality, doctor, userId) => {
 
@@ -194,8 +191,9 @@ const AppointmentPage = ({ history }) => {
 
           </Form.Group>
 
-
-          <Button type='submit' variant='success'>Book</Button>
+          <div className='text-center'>
+            <Button type='submit' block variant='success'>Book</Button>
+          </div>
         </Form>
 
 

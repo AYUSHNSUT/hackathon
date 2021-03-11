@@ -14,7 +14,7 @@ const Register = ({ history }) => {
   const [address, setAddress] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [validated, setValidated] = useState(false);
+  const [validated,] = useState(false);
 
 
 
@@ -39,7 +39,7 @@ const Register = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-   
+
     if (password === confirmPassword) {
       registerUser(name, age, contactNumber, gender, address, email, password)
     }

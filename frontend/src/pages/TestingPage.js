@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import '../styles/covidpage.css'
 import '../styles/map.css'
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userAtom, tokenAtom } from "../global/globalState";
 import { DisplayMapFC } from '../components/DisplayMapFC'
 import { Button, Container, Row, Col, Table, Form } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 import FormContainer from '../components/FormContainer'
 import TopNav from '../components/TopNav'
 import Footer from '../components/Footer'
@@ -21,17 +19,6 @@ const TestingPage = ({ history }) => {
 
   const [user, setUser] = useRecoilState(userAtom);
   const token = useRecoilValue(tokenAtom);
-
-  // useEffect(() => {
-
-
-  //   if (user) {
-  //     console.log(user._id)
-  //   }
-  //   else { history.push('/loginchoice') }
-
-  // }, [history]);
-
 
 
   return (

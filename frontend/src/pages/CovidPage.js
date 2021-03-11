@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import '../styles/covidpage.css'
 import '../styles/map.css'
 import { DisplayMapFC } from '../components/DisplayMapFC'
@@ -10,14 +9,10 @@ import Footer from '../components/Footer'
 import Loader from '../components/Loader'
 
 
-let userData = localStorage.getItem('userData');
-let doctorData = localStorage.getItem('doctorData');
-
 
 const CovidPage = () => {
 
-  const [doctors, setDoctors] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading,] = useState(false)
 
 
 

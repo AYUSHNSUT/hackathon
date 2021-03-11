@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/covidpage.css";
-import { Button, Table, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col } from "react-bootstrap";
 import TopNav from "../components/TopNav";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
@@ -26,10 +26,8 @@ const GetMedicine = ({ history }) => {
         config
       );
       console.log(data);
-      setTimeout(() => {
-        setMedicine(data[0])
-        setPrice(data[1])
-      }, 15000);
+      setMedicine(data[0])
+      setPrice(data[1])
 
 
       console.log(medicine)
@@ -41,6 +39,7 @@ const GetMedicine = ({ history }) => {
   };
 
   const submitHandler = (e, data) => {
+
     e.preventDefault();
 
 
@@ -71,39 +70,46 @@ const GetMedicine = ({ history }) => {
                   </Form.Group>
 
                   <div className='text-center mb-5'>
-                    <Button type="button" variant="success" onClick={submitHandler}>
+                    <Button type="button" variant="success" block onClick={submitHandler}>
                       Find
                 </Button>
                   </div>
                 </Form>
               </FormContainer>
-              <Row className='mb-5'>
-                <Col></Col>
-                <Col>
-                  <Row style={{ fontSize: '26px', borderBottom: 'solid 1px black' }}>
-                    Name
+
+              {medicine ? (
+
+
+                <Row className='mb-5'>
+                  <Col></Col>
+                  <Col>
+                    <Row style={{ fontSize: '26px', borderBottom: 'solid 1px black' }}>
+                      Name
                   </Row>
-                  {
-                    medicine && (
-                      medicine.map((m) => (
-                        <Row className='py-2' style={{ width: '500px' }}>{m}</Row>
-                      ))
-                    )
-                  }
-                </Col>
-                <Col style={{ width: '80px' }}>
-                  <Row style={{ fontSize: '26px', borderBottom: 'solid 1px black', width: '100px' }}>
-                    Price
+                    {
+                      medicine && (
+                        medicine.map((m) => (
+                          <Row className='py-2' style={{ width: '500px' }}>{m}</Row>
+                        ))
+                      )
+                    }
+                  </Col>
+                  <Col style={{ width: '80px' }}>
+                    <Row style={{ fontSize: '26px', borderBottom: 'solid 1px black', width: '100px' }}>
+                      Price
                   </Row>
-                  {
-                    price && (
-                      price.map((p) => (
-                        <Row className='py-2' style={{}}>{p}</Row>
-                      ))
-                    )
-                  }
-                </Col>
-              </Row>
+                    {
+                      price && (
+                        price.map((p) => (
+                          <Row className='py-2' style={{}}>{p}</Row>
+                        ))
+                      )
+                    }
+                  </Col>
+                </Row>
+
+              ) : (<Loader />)}
+
 
             </div>
             <Footer />

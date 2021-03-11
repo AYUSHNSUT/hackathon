@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import axios from 'axios'
 import '../styles/covidpage.css'
-import { Button, Row, Col, Form, Container } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { Button, Form, Container } from 'react-bootstrap'
 import TopNav from '../components/TopNav'
 import Footer from '../components/Footer'
 import Loader from '../components/Loader'
@@ -484,7 +482,7 @@ const CovidPage = ({ history }) => {
                           <h3 variant='danger' className='mb-4' style={{ fontWeight: 'bolder', color: 'red' }}>
                             You might be infected with CoronaVirus.
                           </h3>
-                          <Button variant='warning' onCLick={() => { history.push('/testing') }}>Book a Test</Button>
+                          <Button variant='warning' onClick={() => { history.push('/testing') }}>Book a Test</Button>
                         </Container>
                       ) : (
                           <Container className='text-center my-5'>
